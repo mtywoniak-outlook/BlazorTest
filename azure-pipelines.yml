@@ -19,7 +19,7 @@ steps:
   inputs:
     version: 3.0.100-preview6-012264
 
-- script: dotnet build --configuration $(buildConfiguration) **/*.csproj
+- script: dotnet build --configuration $(buildConfiguration) *.csproj
   displayName: 'Building $(buildConfiguration)...'
 
 - task: DotNetCoreCLI@2
