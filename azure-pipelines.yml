@@ -19,8 +19,13 @@ steps:
   inputs:
     version: 3.0.100-preview6-012264
 
-- script: dotnet build --configuration $(buildConfiguration) *.csproj
-  displayName: 'Building $(buildConfiguration)...'
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)' # Update this to match your need
+
 
 - task: DotNetCoreCLI@2
   displayName: 'Publishing App...'
